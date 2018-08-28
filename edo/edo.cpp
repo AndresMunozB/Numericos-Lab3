@@ -6,8 +6,9 @@ using namespace arma;
 using namespace std;
 
 mat createMatrizA(int p){
-	// p -> cantidad de puntos, p=n+1
-	// n -> numero de intervalos, n=p-1
+mat createMatrizB(int p, double c,double te){
+	// p -> Cantidad de puntos. p=n+1
+	// n -> Cantidad de intervalos. n=p-1
 	int n = p-1; 
 	mat  a = zeros<mat>(p,p);
 	a(0,0) = -1;
@@ -24,9 +25,9 @@ mat createMatrizA(int p){
 }
 
 mat createMatrizB(int p, double c,double te){
-	// p -> cantidad de puntos, p=n+1
-	// c -> constante de difusion del material.
-	// n -> numero de intervalos
+	// p -> Cantidad de puntos. p=n+1
+	// n -> Cantidad de intervalos. n=p-1
+	// c -> Constante de difusión del material.
 	int n = p -1; 
 	mat  b = zeros<mat>(p,1);
 
@@ -37,27 +38,35 @@ mat createMatrizB(int p, double c,double te){
 	}
 	return b;
 }
-int main(){
-	double R = 10;
-	int p = 5; //Puntos dentro del intervalo
-	int c = -2; //
-	int n = p-1;
-	double dr = R/n;
-	double te = 50.0;
-	mat a = createMatrizA(p);
-	mat b = createMatrizB(p,c,te);
-	mat x = solve(a,b);
-
-	for (int i = 0; i< p; i++){
-		cout << x(i,0) << endl;
-	}
-	for (int i = 0; i< p; i++){
-		cout << b(i,0) << endl;
-	}
+void showMatrizA(mat a,int p){
 	for (int i = 0; i< p; i++){
 		for (int j = 0; j< p; j++){
 			cout  << a(i,j) << ", ";
 		}
 		cout << endl;
 	}
+}
+void showMatrizBorX(mat y, int p){
+	for (int i = 0; i< p; i++){
+		cout << y(i,0) << endl;
+	}
+}
+int main(){
+	
+	int p = 5; 			// Cantidad de puntos.
+	int n = p-1; 		// Cantidad de intervalos.
+	int c = -2; 		// Constante de difusión del material.
+	double te = 50.0; 	// Temperatura en la capa exterior.
+	//double R = 10; 	//Radio del cilindro.
+	//double dr = R/n; 	// Diferencial de radio.
+
+
+	mat A = createMatrizA(p);
+	mat B = createMatrizB(p,c,te);
+	mat X = solve(A,B);
+
+	/*showMatrizA(A,p);
+	showMatrizBorX(B,p);
+	showMatrizBorX(X,p);*/
+	
 }
