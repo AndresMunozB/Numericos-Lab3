@@ -6,7 +6,6 @@ using namespace arma;
 using namespace std;
 
 mat createMatrizA(int p){
-mat createMatrizB(int p, double c,double te){
 	// p -> Cantidad de puntos. p=n+1
 	// n -> Cantidad de intervalos. n=p-1
 	int n = p-1; 
