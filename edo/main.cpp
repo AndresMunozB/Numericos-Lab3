@@ -1,21 +1,38 @@
-#include "ht.h"
-	
 
+/**
+ * \mainpage Heat Transfer in a cylinder.
+ * \author Andrés Muñoz Bravo
+ * \date 29-Agosto-2018
+ */
+
+//COMO EJECUTAR EL PROGRAMA: ./ht 5 -50 50 1 nameFile
+// 							 ./ht p  c  te R nameFile
+
+/*INPUTS:
+p -> CANTIDAD DE PUNTOS
+c -> CONSTANTE DE DIFUSIÓN
+te-> TEMPERATURA EN LA CAPA EXTERNA
+R -> RADIO DEL CILINDRO.*/
+
+
+#include "ht.h"
+/**
+ * @brief Valida las entradas para el programa (Se puede mejorar o tambien utilizar getopt).
+ * @param argc Cantidad de datos que recibe el progama.
+ * @param argv Arreglo de string que recibe al programa.
+
+ */
 int validateInputs(int argc, char *argv[]){
 	if(argc < 6){
-		cout << "ht 5 -50 50 1 nameFile" << endl;
+		cout << "./ht 5 -50 50 1 nameFile" << endl;
 		return 0;
 	}
 
 	return 1;
 }
-/*
-INPUTS:
-p -> CANTIDAD DE PUNTOS
-c -> CONSTANTE DE DIFUSIÓN
-te-> TEMPERATURA EN LA CAPA EXTERNA
-R -> RADIO DEL CILINDRO.
-*/
+
+
+
 int main(int argc, char *argv[]){
 	
 	// La cantidad de memoria utilizada para ejecutar el programa es aproximandamente:
@@ -37,7 +54,8 @@ int main(int argc, char *argv[]){
 	mat A = ht.newA(p);
 	mat B = ht.newB(p,c,te,dr);
 	mat X = solve(A,B);
-	
+
+	//Para mostrar las matrices que se crearon y la que contiene los resultados.
 	/*ht.showA(A,p);
 	ht.showBoX(B,p);
 	ht.showBoX(X,p);*/
