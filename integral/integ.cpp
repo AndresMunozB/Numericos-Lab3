@@ -1,3 +1,9 @@
+/**
+ * \mainpage Integración.
+ * \author Andrés Muñoz Bravo
+ * \date 29-Agosto-2018
+ */
+
 #include "integ.h"
 
 #include <iostream>

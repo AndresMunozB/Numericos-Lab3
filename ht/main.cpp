@@ -1,6 +1,6 @@
 
 /**
- * \mainpage Heat Transfer in a cylinder.
+ * \mainpage Transferencia de calor en un cilindro.
  * \author Andrés Muñoz Bravo
  * \date 29-Agosto-2018
  */
