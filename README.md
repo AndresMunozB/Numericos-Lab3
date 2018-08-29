@@ -9,7 +9,7 @@ make
 
 ### Ejecutar:
 ```
-./ht a b e
+./main a b e
 ```
 Donde: 
 * a : VALOR INFERIOR" 
@@ -35,6 +35,6 @@ Donde:
 * name : NOMBRE DEL ARCHIVO DE SALIDA
 
 
-## Authors
+## Author
 
 * **Andrés Muñoz Bravo** - *Universidad de Santiago de Chile* - [AndresUsach](https://github.com/AndresUsach)
