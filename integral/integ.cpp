@@ -77,13 +77,40 @@ long double IS38(long double a, long double b, long double tol){
         return IS38(a,m,tol) + IS38(m,b,tol);
     }
 }
+
+/**
+ * @brief Valida las entradas para el programa (Se puede mejorar o tambien utilizar getopt).
+ * @param argc Cantidad de datos que recibe el progama.
+ * @param argv Arreglo de string que recibe al programa.
+
+ */
+int validateInputs(int argc, char *argv[]){
+    if(argc < 4){
+        cout << "Formato: ./main a b e" << endl;
+        cout << "   - a : VALOR INFERIOR"  << endl;
+        cout << "   - b : VALOR SUPERIOR" << endl;
+        cout << "   - e : TOLERANCIA" << endl;
+        cout << "Ejemplo: ./main 0.0 10.0 0.0001 " << endl;
+        return 0;
+    }
+
+    return 1;
+}
+
 int main(int argc, char *argv[])
-{
-    long double valIT = IT(0.0,1.0,0.0000001);
-    long double valS13 = IS13(0.0,1.0,0.0000001);
-    long double valS38 = IS38(0.0,1.0,0.0000001);
+{   
+    if(!validateInputs(argc,argv)){
+        return 0;
+    }
+    long double a = stod(argv[1]);
+    long double b = stod(argv[2]);
+    long double e = stod(argv[3]);
+    long double valIT = IT(a,b,e);
+    long double valS13 = IS13(a,b,e);
+    long double valS38 = IS38(a,b,e);
     cout << "itIT : " << itIT  << ", valor: " << valIT  << endl;
     cout << "itS13: " << itS13 << ", valor: " << valS13 <<  endl;
     cout << "itS38: " << itS38 << ", valor: " << valS38 << endl;
+    return 1;
 
 }

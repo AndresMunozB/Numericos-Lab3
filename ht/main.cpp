@@ -24,7 +24,13 @@ R -> RADIO DEL CILINDRO.*/
  */
 int validateInputs(int argc, char *argv[]){
 	if(argc < 6){
-		cout << "./ht 5 -50 50 1 nameFile" << endl;
+		cout << "Formato: ./ht p c te R name" << endl;
+		cout << "	- p : CANTIDAD DE PUNTOS"  << endl;
+		cout << "	- c : CONSTANTE DE DIFUSIÓN" << endl;
+		cout << "	- te: TEMPERATURA EN LA CAPA EXTERNA" << endl;
+		cout << "	- R : RADIO DEL CILINDRO" << endl;
+		cout << "	- name : NOMBRE DEL ARCHIVO DE SALIDA" << endl;
+		cout << "Ejemplo: ./ht 5 -50 50 1 resuldato.txt" << endl;
 		return 0;
 	}
 
